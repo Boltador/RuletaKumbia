@@ -93,17 +93,15 @@
     }
 
     function eliminarJugadorAction() {
-        var data = {
+        /*var data = {
             jugador_id: id_jugador
-        };
+        };*/
         $.ajax({
-            type: "POST",
-            url: '',
-            data: data,
+            type: "GET",
+            url: "<?php PUBLIC_PATH.'jugador/delete/'.id_jugador ?>",
             success: function (data) {
                 location.reload();
             }
         });
     }
-
 </script>

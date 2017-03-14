@@ -8,9 +8,10 @@ class JugadorController extends AppController {
 
   
     public function delete($id) {
+        View::response('json', null);
         $jugador = (new Jugador)->delete($id);
         
-        View::response('json', null);
+        $this->data = null;
     }
 
 }
