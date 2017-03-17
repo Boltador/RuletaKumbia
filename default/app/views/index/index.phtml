@@ -82,7 +82,7 @@
         </div>
     </div>
 </div>
-<script>
+<script type="text/javascript">
     var id_jugador;
     function eliminarJugador(jugador_id, nombre, dinero) {
         $("#nombre_lbl").empty();
@@ -93,12 +93,10 @@
     }
 
     function eliminarJugadorAction() {
-        /*var data = {
-            jugador_id: id_jugador
-        };*/
+        url = "jugador/delete/" + id_jugador;
         $.ajax({
-            type: "GET",
-            url: "<?php PUBLIC_PATH.'jugador/delete/'.id_jugador ?>",
+            type: "POST",
+            url: url,
             success: function (data) {
                 location.reload();
             }

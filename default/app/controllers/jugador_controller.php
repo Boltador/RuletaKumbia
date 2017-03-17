@@ -6,12 +6,11 @@
  */
 class JugadorController extends AppController {
 
-  
     public function delete($id) {
-        View::response('json', null);
         $jugador = (new Jugador)->delete($id);
-        
-        $this->data = null;
+        $this->data = json_encode(null);
+        View::select(null, null);
+        View::template('json', null);
     }
 
 }
