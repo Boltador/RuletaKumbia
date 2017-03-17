@@ -29,7 +29,7 @@
             </thead>
             <tbody>
                 <?php foreach ($jugadores as $jugador) { ?>
-                    <tr>
+                    <tr id="jugador_<?= $jugador->id ?>">
                         <td><center><?= $jugador->nombre; ?></center></td>
                 <td><center>$ <?= $jugador->dinero; ?></center></td>
                 <?php if ($estado == 1) { ?> 
@@ -98,7 +98,10 @@
             type: "POST",
             url: url,
             success: function (data) {
-                location.reload();
+                $('#myModal').modal('toggle');
+                $("#jugador_" + data + "").fadeOut("slow", function () {
+                    $("#jugador_" + data + "").remove();
+                });
             }
         });
     }
